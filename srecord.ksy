@@ -1,9 +1,3 @@
-meta:
-  id: SRECORD
-  endian: le
-  license: CC0-1.0
-  ks-version: 0.8
-
 seq:
   - id: record
     type: srecord
@@ -28,9 +22,12 @@ types:
       - id: count
         type: u2
 
+      - id: src_header
+        type: u4
+        if: src_type == S0
       - id: src_address16
         type: u4
-        if: src_type == S0 | src_type == S1
+        if: src_type == S1
       - id: src_address24
         type: u6
         if: src_type == S2
